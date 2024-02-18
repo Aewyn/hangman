@@ -15,11 +15,9 @@ public class Round {
 	public final Scanner scanner = new Scanner(System.in);
 
 	void start() {
-		List<String> options = List.of("spoon", "doggy", "candy", "table", "socks");
+		List<String> options = WordListCreator.getWords();
 		word = options.get((int) ((Math.random()) * options.size()));
 		currentState = new StringBuilder(word);
-		//TODO: Get word from file.
-
 		showCurrentState();
 		while (gameOver() == 0) {
 			var guess = askGuess();
@@ -43,6 +41,7 @@ public class Round {
 			return 1;
 		} else if (wrongGuessesLeft == 0) {
 			System.out.println("OH NO, YOU LOSE!");
+			System.out.println("The word was: " + word);
 			return -1;
 		} else {
 			return 0;
