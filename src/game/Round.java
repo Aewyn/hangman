@@ -23,8 +23,6 @@ public class Round {
 			var guess = askGuess();
 			if (isValidGuess(guess)) {
 				guessLetter(String.valueOf(guess.charAt(0)));
-			} else {
-				System.out.println("Something unforeseen happened?!");
 			}
 		}
 		isOver = true;
@@ -66,6 +64,7 @@ public class Round {
 			wrongGuessesLeft--;
 			System.out.println("Oops, wrong letter! Only " + wrongGuessesLeft + " guesses left.");
 			wrongGuesses.add(letter.charAt(0));
+			showCurrentState();
 		}
 	}
 
